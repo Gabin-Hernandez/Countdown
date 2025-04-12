@@ -22,6 +22,9 @@
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
+      html {
+        -webkit-text-size-adjust: none; /* Safari iOS: evita reescalar el texto */
+           }
       body {
         font-family: "Red Hat Text", sans-serif;
         margin: 0;
@@ -80,7 +83,7 @@
       /* finaliza el estilo de los numeros  */
 
       .social-links {
-        position: fixed; /* Ahora es fijo en la pantalla */
+        position: scroll; /* Ahora es fijo en la pantalla */
         bottom: 20px;
         left: 50%;
         transform: translateX(-50%);
@@ -122,6 +125,8 @@
           background-position-x: left;
           background-position-y: bottom, bottom;
           background-attachment: scroll, scroll;
+          height: 100dvh; /* altura dinámica real en iOS */
+          min-height: auto; /* quitas el min-height anterior *
         }
         .content {
           margin: 0px 60px;
