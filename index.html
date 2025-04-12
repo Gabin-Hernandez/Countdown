@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=League+Spartan:wght@100..900&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Overpass:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Young+Serif&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Launch countdown timer</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      body {
+        font-family: "Red Hat Text", sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background-color: hsl(234, 17%, 12%);
+        background-image: url("./images/pattern-hills.svg"),
+          url("./images/bg-stars.svg");
+        background-position: center bottom, center top;
+        background-repeat: no-repeat, repeat;
+        background-size: contain, auto;
+        display: grid;
+        place-items: center;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 200px;
+      }
+      .title {
+        color: white;
+        margin-bottom: 50px;
+        text-align: center;
+      }
+      .content {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        color: white;
+      }
+      .content p:nth-child(2) {
+        letter-spacing: 5px;
+        margin-left: 10px;
+      }
+
+      /* estilo para los numeros */
+      .days,
+      .hours,
+      .minutes,
+      .seconds {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        background-color: #2c2238; /* color del fondo del número */
+        color: #ff5f96; /* color del texto */
+        font-size: 2rem;
+        font-weight: bold;
+        border-radius: 10px;
+        text-align: center;
+        line-height: 60px; /* centra el texto verticalmente */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* sombra suave */
+        margin: 0 12px;
+        transition: all 0.3s ease;
+      }
+      /* finaliza el estilo de los numeros  */
+
+      .social-links {
+        position: fixed; /* Ahora es fijo en la pantalla */
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+      .link-btn:hover {
+        background-color: hsl(345, 95%, 68%);
+      }
+      .link-btn {
+        cursor: pointer;
+        background: none;
+      }
+      .reference {
+        font-size: 11px;
+        text-align: center;
+        position: fixed; /* Ahora es fijo en la pantalla */
+        bottom: 1px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        cursor: pointer;
+        margin-bottom: 20px;
+        color: white;
+      }
+      .reference a {
+        color: hsl(345, 95%, 68%);
+      }
+      @media (max-width: 760px) {
+        body {
+          max-height: 100%;
+          background-position: center bottom, bottom;
+          background-size: auto, auto;
+          background-position-x: left;
+          background-position-y: bottom, bottom;
+          background-attachment: fixed, scroll;
+        }
+        .content {
+          margin: 0px 60px;
+          text-align: center;
+        }
+        .title {
+          margin: 100px 0px;
+        }
+        .social-links .link-btn {
+          padding: 10px;
+          border-radius: 5px;
+          transition: transform 0.2s ease-in-out;
+        }
+
+        .social-links .link-btn:hover {
+          transform: scale(1.1);
+        }
+
+        .social-links .link-btn img {
+          width: 40px;
+          height: auto;
+        }
+        .days,
+        .hours,
+        .minutes,
+        .seconds {
+          width: 50px;
+          height: 50px;
+          font-size: 1.5rem;
+          line-height: 50px;
+          margin: 0 3px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 class="title">We're launching soon</h1>
+      <div class="content">
+        <div>
+          <p class="days">#</p>
+          <p>DAYS</p>
+        </div>
+        <div>
+          <p class="hours">#</p>
+          <p>HOURS</p>
+        </div>
+        <div>
+          <p class="minutes">#</p>
+          <p>MINUTES</p>
+        </div>
+        <div>
+          <p class="seconds">#</p>
+          <p>SECONDS</p>
+        </div>
+      </div>
+      <div class="social-links">
+        <button class="link-btn" >
+          <a href="https://www.facebook.com/profile.php?id=100003216434960"><img src="./images/icon-facebook.svg" alt="" /></a>
+        </button>
+        <button class="link-btn">
+          <a href="https://www.instagram.com/gabito_gabin/"><img src="./images/icon-instagram.svg" alt="" /></a>
+        </button>
+        <button class="link-btn">
+          <a href="https://gabin-hernandez.github.io/Advice-Gen/"> <img src="./images/monkey-25-32.png" alt="" /></a>
+        </button>
+      </div>
+      <div class="reference">Coded by <a href="#">Gabin Hernandez</a></div>
+    </main>
+    <script src="./counter.js"></script>
+  </body>
+</html>
